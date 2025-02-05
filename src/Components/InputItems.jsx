@@ -27,12 +27,13 @@ const InputItems = ({ handleNewTask }) => {
     setTime("");
   };
   return (
-    <div>
+    <div className="flex flex-col items-center sm:flex sm:items-start">
       <h1 className="text-4xl mb-10 text-[#85B8CB]">Input Task</h1>
-      <div className="space-y-10">
-        <label className="form-control w-full max-w-xs">
+      <div className="space-y-2 sm:space-y-10 ">
+        <label className="form-control w-full max-w-xs flex flex-row sm:flex-col">
           <div className="label">
-            <span className="label-text">Input Task</span>
+            <span className="label-text sm:block hidden">Input Task</span>
+            <span className="sm:hidden">Task</span>
           </div>
           <input
             type="text"
@@ -43,9 +44,10 @@ const InputItems = ({ handleNewTask }) => {
           />
         </label>
 
-        <label className="form-control w-full max-w-xs">
+        <label className="form-control w-full max-w-xs flex flex-row sm:flex-col">
           <div className="label">
-            <span className="label-text">Select a Date</span>
+            <span className="label-text sm:block hidden">Select a Date</span>
+            <span className="sm:hidden">Date</span>
           </div>
           <input
             type="date"
@@ -54,12 +56,15 @@ const InputItems = ({ handleNewTask }) => {
             onChange={handleDate}
           />
           <div className="label">
-            <span className="label-text-alt">Format: YYYY-MM-DD</span>
+            <span className="label-text-alt sm:block hidden">
+              Format: YYYY-MM-DD
+            </span>
           </div>
         </label>
-        <label className="form-control w-full max-w-xs">
+        <label className="form-control w-full max-w-xs flex flex-row sm:flex-col">
           <div className="label">
-            <span className="label-text">Select a Time</span>
+            <span className="label-text sm:block hidden">Select a Time</span>
+            <span className="sm:hidden">Time</span>
           </div>
           <input
             type="time"
@@ -68,7 +73,9 @@ const InputItems = ({ handleNewTask }) => {
             onChange={handleTime}
           />
           <div className="label">
-            <span className="label-text-alt">Format: HH:MM (24-hour)</span>
+            <span className="label-text-alt sm:block hidden">
+              Format: HH:MM (24-hour)
+            </span>
           </div>
         </label>
         <button onClick={handleAddTask} className="btn bg-[#85B8CB] text-black">

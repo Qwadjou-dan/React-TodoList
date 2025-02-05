@@ -37,7 +37,7 @@ const App = () => {
     );
   };
   return (
-    <div className="flex flex-row gap-20 ml-10 h-screen">
+    <div className="flex flex-col sm:flex-row sm:pl-10 gap-20 h-screen">
       <div className="w-[300px]">
         <InputItems handleNewTask={handleNewTask} />
       </div>

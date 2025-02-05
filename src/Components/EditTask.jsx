@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { FaEdit } from "react-icons/fa";
 
 export const EditTask = ({ task, handleEditTask }) => {
   const [taskName, setTaskName] = useState(task.task);
@@ -40,7 +41,8 @@ export const EditTask = ({ task, handleEditTask }) => {
   return (
     <div>
       <button className="btn" onClick={openModal}>
-        Edit
+        <span className="md:block hidden">Edit</span>
+        <FaEdit className="md:hidden" />
       </button>
 
       <dialog id="my_modal_3" className="modal" ref={modalRef}>
@@ -53,11 +55,11 @@ export const EditTask = ({ task, handleEditTask }) => {
               ✕
             </button>
           </form>
-          <h1 className="text-4xl mb-10 text-[#85B8CB]">Input Task</h1>
+          <h1 className="text-4xl mb-10 text-[#85B8CB]">Edit Task Info</h1>
           <div className="space-y-10">
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text text-[#85B8CB]">Edit Task</span>
+                <span className="label-text font-bold">Edit Task</span>
               </div>
               <input
                 type="text"
@@ -70,7 +72,7 @@ export const EditTask = ({ task, handleEditTask }) => {
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">Edit Date</span>
+                <span className="label-text font-bold">Edit Date</span>
               </div>
               <input
                 type="date"
@@ -84,7 +86,7 @@ export const EditTask = ({ task, handleEditTask }) => {
             </label>
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">Edit Time</span>
+                <span className="label-text font-bold">Edit Time</span>
               </div>
               <input
                 type="time"
@@ -100,7 +102,7 @@ export const EditTask = ({ task, handleEditTask }) => {
               onClick={handleAddTask}
               className="btn bg-[#85B8CB] text-black"
             >
-              Add Task
+              Edit Task
             </button>
           </div>
         </div>
