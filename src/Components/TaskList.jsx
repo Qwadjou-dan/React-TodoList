@@ -31,9 +31,9 @@ const TaskList = ({
               onClick={() => {
                 handleCompletedTask(task.id);
               }}
-              className="btn btn-primary"
+              className="btn btn-primary border-none"
               style={{
-                backgroundColor: task.complete ? "red" : "bgColor",
+                backgroundColor: task.complete ? "green" : "bgColor",
               }}
             >
               <span className="md:block hidden">
@@ -47,7 +47,7 @@ const TaskList = ({
                 onClick={() => {
                   handleDeleteTask(task.id);
                 }}
-                className="btn btn-error"
+                className="btn btn-error border-none"
               >
                 <span className="md:block hidden">Delete</span>
                 <MdDelete className="md:hidden" />

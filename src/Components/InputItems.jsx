@@ -6,6 +6,7 @@ const InputItems = ({ handleNewTask }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = React.useState("");
   const [complete, setComplete] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleTask = (e) => {
     setTask(e.target.value);
@@ -21,10 +22,16 @@ const InputItems = ({ handleNewTask }) => {
 
   const handleAddTask = (e) => {
     e.preventDefault();
+
+    if (!task.trim()) {
+      setErrorMessage("Task cannot be empty");
+      return;
+    }
     handleNewTask({ task, date, time, id: uuid(), complete });
     setTask("");
     setDate("");
     setTime("");
+    setErrorMessage("");
   };
   return (
     <div className="flex flex-col items-center sm:flex sm:items-start">
@@ -81,6 +88,7 @@ const InputItems = ({ handleNewTask }) => {
         <button onClick={handleAddTask} className="btn bg-[#85B8CB] text-black">
           Add Task
         </button>
+        {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
       </div>
     </div>
   );
