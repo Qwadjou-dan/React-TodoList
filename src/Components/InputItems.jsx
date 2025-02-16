@@ -34,10 +34,10 @@ const InputItems = ({ handleNewTask }) => {
     setErrorMessage("");
   };
   return (
-    <div className="flex flex-col items-center sm:flex sm:items-start">
+    <div className="flex flex-col sm:items-start w-full">
       <h1 className="text-4xl mb-10 text-[#85B8CB]">Input Task</h1>
-      <div className="space-y-2 sm:space-y-10 ">
-        <label className="form-control w-full max-w-xs flex flex-row sm:flex-col">
+      <div className="space-y-2 sm:space-y-10 w-full ">
+        <label className="form-control flex flex-row sm:flex-col sm:w-full">
           <div className="label">
             <span className="label-text sm:block hidden">Input Task</span>
             <span className="sm:hidden">Task</span>
@@ -45,20 +45,21 @@ const InputItems = ({ handleNewTask }) => {
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
             value={task}
             onChange={handleTask}
           />
+          {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
         </label>
 
-        <label className="form-control w-full max-w-xs flex flex-row sm:flex-col">
+        <label className="form-control flex flex-row sm:flex-col sm:w-full">
           <div className="label">
             <span className="label-text sm:block hidden">Select a Date</span>
             <span className="sm:hidden">Date</span>
           </div>
           <input
             type="date"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
             value={date}
             onChange={handleDate}
           />
@@ -68,14 +69,14 @@ const InputItems = ({ handleNewTask }) => {
             </span>
           </div>
         </label>
-        <label className="form-control w-full max-w-xs flex flex-row sm:flex-col">
+        <label className="form-control flex flex-row sm:flex-col sm:w-full">
           <div className="label">
             <span className="label-text sm:block hidden">Select a Time</span>
             <span className="sm:hidden">Time</span>
           </div>
           <input
             type="time"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
             value={time}
             onChange={handleTime}
           />
@@ -85,11 +86,13 @@ const InputItems = ({ handleNewTask }) => {
             </span>
           </div>
         </label>
-        <button onClick={handleAddTask} className="btn bg-[#85B8CB] text-black">
-          Add Task
-        </button>
-        {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
       </div>
+      <button
+        onClick={handleAddTask}
+        className="btn bg-[#85B8CB] text-black mt-10"
+      >
+        Add Task
+      </button>
     </div>
   );
 };
